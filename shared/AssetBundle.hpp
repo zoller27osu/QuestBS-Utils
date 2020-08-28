@@ -2,9 +2,16 @@
 
 #include "beatsaber-hook/shared/utils/typedefs.h"
 #include "beatsaber-hook/shared/utils/il2cpp-utils.hpp"
+#ifdef HAS_CODEGEN
+#include "UnityEngine/Object.hpp"
+#endif
 
 namespace bs_utils {
+  #ifdef HAS_CODEGEN
+    typedef UnityEngine::Object Asset;
+  #else
     typedef Il2CppObject Asset;
+  #endif
 
     /// @class A C++ wrapper around the C# AssetBundle type.
     class AssetBundle : public Il2CppObject {
